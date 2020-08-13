@@ -18,8 +18,8 @@ console.log("Welcome to Password Generator!");
 alert("Welcome to Password Generator!");
 
 var pickLength = function () {
-    promptLength = prompt("Choose a length between 8-128 characters.");
-    console.log("Choose a length between 8-128 characters.");
+    promptLength = prompt("Choose a password length between 8-128 characters.");
+    console.log("Choose a password length between 8-128 characters.");
     console.log(promptLength);
 
     if (promptLength === "" || promptLength === null || promptLength < 8 || promptLength > 128 || isNaN(promptLength)) {
@@ -33,7 +33,7 @@ var pickLength = function () {
 
 var pickType = function () {
     characters = [];
-    alert("Your password must be between 8-128 characters in length, and must consist of at least one of the following character types: uppercase letters, lowercase letters, numbers, and/or special characters.");
+    alert("Your password must consist of at least one of the following character types: uppercase letters, lowercase letters, numbers, and/or special characters.");
     console.log("Your password must be between 8-128 characters in length, and must consist of at least one of the following character types: uppercase letters, lowercase letters, numbers, and/or special characters.");
     alert("Please respond to the following questions by typing either 'YES' or 'NO' only.");
     promptTypeUpper = prompt("Would you like to include uppercase letters?");
