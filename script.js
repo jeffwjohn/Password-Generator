@@ -38,14 +38,14 @@ var pickType = function () {
     alert("Please respond to the following questions by typing either 'YES' or 'NO' only.");
     promptTypeUpper = prompt("Would you like to include uppercase letters?");
     console.log(promptTypeUpper);
-    promptTypeUpper = promptTypeUpper.toLowerCase(); 
+    promptTypeUpper = promptTypeUpper.toLowerCase();
     if (promptTypeUpper === "" || promptTypeUpper === null || promptTypeUpper !== "yes" && promptTypeUpper !== "no") {
         alert("You need to provide a valid answer! Please try again.");
         return pickType();
-    }  
+    }
     if (promptTypeUpper === "yes") {
         characters.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    } 
+    }
 
     promptTypeLower = prompt("Would you like to include lowercase letters?");
     console.log(promptTypeLower);
@@ -53,7 +53,7 @@ var pickType = function () {
     if (promptTypeLower === "" || promptTypeLower === null || promptTypeLower !== "yes" && promptTypeLower !== "no") {
         alert("You need to provide a valid answer! Please try again.");
         return pickType();
-    } 
+    }
     if (promptTypeLower === "yes") {
         characters.push('abcdefghijklmnopqrstuvwxyz');
     }
@@ -63,7 +63,7 @@ var pickType = function () {
     if (promptTypeNumber === "" || promptTypeNumber === null || promptTypeNumber !== "yes" && promptTypeNumber !== "no") {
         alert("You need to provide a valid answer! Please try again.");
         return pickType();
-    } 
+    }
     if (promptTypeNumber === "yes") {
         characters.push('0123456789');
     }
@@ -73,7 +73,7 @@ var pickType = function () {
     if (promptTypeSpecial === "" || promptTypeSpecial === null || promptTypeSpecial !== "yes" && promptTypeSpecial !== "no") {
         alert("You need to provide a valid answer! Please try again.");
         return pickType();
-    } 
+    }
     if (promptTypeSpecial === "yes") {
         characters.push("!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
     }
