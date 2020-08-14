@@ -1,5 +1,5 @@
 // Assignment code here
-//debugger;
+debugger;
 //"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 function generatePassword() {
@@ -31,55 +31,70 @@ var pickLength = function () {
     }
 };
 
+let characters = [];
+
 var pickType = function () {
-    characters = [];
+
     alert("Your password must consist of at least one of the following character types: uppercase letters, lowercase letters, numbers, and/or special characters.");
     console.log("Your password must be between 8-128 characters in length, and must consist of at least one of the following character types: uppercase letters, lowercase letters, numbers, and/or special characters.");
-    alert("Please respond to the following questions by typing either 'YES' or 'NO' only.");
-    promptTypeUpper = prompt("Would you like to include uppercase letters?");
-    console.log(promptTypeUpper);
-    promptTypeUpper = promptTypeUpper.toLowerCase();
-    if (promptTypeUpper === "" || promptTypeUpper === null || promptTypeUpper !== "yes" && promptTypeUpper !== "no") {
-        alert("You need to provide a valid answer! Please try again.");
-        return pickType();
-    }
-    if (promptTypeUpper === "yes") {
-        characters.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    alert("Please respond to the following questions by clicking 'OK' for yes and 'Cancel' for no.");
+
+
+    var validTypeUpper = false
+    while (!validTypeUpper) {
+        var confirmTypeUpper = confirm("Would you like to include uppercase letters?");
+        console.log(confirmTypeUpper);
+        if (confirmTypeUpper === true) {
+            characters.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+            var validTypeUpper = true;
+        } else {
+            var validTypeUpper = true;
+        }
     }
 
-    promptTypeLower = prompt("Would you like to include lowercase letters?");
-    console.log(promptTypeLower);
-    promptTypeLower = promptTypeLower.toLowerCase();
-    if (promptTypeLower === "" || promptTypeLower === null || promptTypeLower !== "yes" && promptTypeLower !== "no") {
-        alert("You need to provide a valid answer! Please try again.");
-        return pickType();
+    var validTypeLower = false
+    while (!validTypeLower) {
+        var confirmTypeLower = confirm("Would you like to include lowercase letters?");
+        console.log(confirmTypeLower);
+        if (confirmTypeLower === true) {
+            characters.push('abcdefghijklmnopqrstuvwxyz');
+            var validTypeLower = true;
+        } else {
+            var validTypeLower = true;
+        }
     }
-    if (promptTypeLower === "yes") {
-        characters.push('abcdefghijklmnopqrstuvwxyz');
-    }
-    promptTypeNumber = prompt("Would you like to include numbers?");
-    console.log(promptTypeNumber);
-    promptTypeNumber = promptTypeNumber.toLowerCase();
-    if (promptTypeNumber === "" || promptTypeNumber === null || promptTypeNumber !== "yes" && promptTypeNumber !== "no") {
-        alert("You need to provide a valid answer! Please try again.");
-        return pickType();
-    }
-    if (promptTypeNumber === "yes") {
-        characters.push('0123456789');
-    }
-    promptTypeSpecial = prompt("Would you like to include special characters?");
-    console.log(promptTypeSpecial);
-    promptTypeSpecial = promptTypeSpecial.toLowerCase();
-    if (promptTypeSpecial === "" || promptTypeSpecial === null || promptTypeSpecial !== "yes" && promptTypeSpecial !== "no") {
-        alert("You need to provide a valid answer! Please try again.");
-        return pickType();
-    }
-    if (promptTypeSpecial === "yes") {
-        characters.push("!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
-    }
-    alert("Click 'Generate Password' when ready. You may continue clicking to generate new passwords with the same criteria. To select new criteria, reload the page.");
 
-    generatePassword();
+    var validTypeNumber = false
+    while (!validTypeNumber) {
+        var confirmTypeNumber = confirm("Would you like to include numbers?");
+        console.log(confirmTypeNumber);
+        if (confirmTypeNumber === true) {
+            characters.push('0123456789');
+            var validTypeNumber = true;
+        } else {
+            var validTypeNumber = true;
+        }
+    }
+
+    var validTypeSpecial = false
+    while (!validTypeSpecial) {
+        var confirmTypeSpecial = confirm("Would you like to include special characters?");
+        console.log(confirmTypeSpecial);
+        if (confirmTypeSpecial === true) {
+            characters.push("!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~");
+            var validTypeSpecial = true;
+        } else {
+            var validTypeSpecial = true;
+        }
+    }
+
+    if (characters.length === 0) {
+        alert("You must choose at least one character type. Please try again.")
+        pickType();
+    } else {
+        alert("Click 'Generate Password' when ready. You may continue clicking to generate new passwords with the same criteria. To select new criteria, reload the page.");
+        generatePassword();
+    }
 };
 
 // Get references to the #generate element
@@ -98,7 +113,6 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-let characters = [];
-console.log(characters.length);
-console.log([characters]);
+
+
 pickLength();
