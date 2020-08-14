@@ -1,11 +1,12 @@
 // Assignment code here
-debugger;
+//debugger;
 //"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
+//PASS INPUTS THROUGH GENERATOR 
 function generatePassword() {
-    var length = parseInt(promptLength),
-        charset = characters.join(''),
-        retValue = "";
+    var length = passLength[0];
+    var charset = characters.join('');
+    var retValue = "";
     for (var i = 0, n = charset.length; i < length; ++i) {
         retValue += charset.charAt(Math.floor(Math.random() * n));
     }
@@ -17,8 +18,10 @@ function generatePassword() {
 console.log("Welcome to Password Generator!");
 alert("Welcome to Password Generator!");
 
+//PROMPT AND OBTAIN LENGTH INPUT
+var passLength = [];
 var pickLength = function () {
-    promptLength = prompt("Choose a password length between 8-128 characters.");
+    var promptLength = prompt("Choose a password length between 8-128 characters.");
     console.log("Choose a password length between 8-128 characters.");
     console.log(promptLength);
 
@@ -27,12 +30,14 @@ var pickLength = function () {
         console.log("Answer invalid. Please try again!");
         return pickLength();
     } else {
+        var promptLength = parseInt(promptLength);
+        passLength.push(promptLength);
         pickType();
     }
 };
 
+//PROMPT AND OBTAIN CHARACTER TYPE INPUT
 var characters = [];
-
 var pickType = function () {
 
     alert("Your password must consist of at least one of the following character types: uppercase letters, lowercase letters, numbers, and/or special characters.");
@@ -114,5 +119,5 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-
+//START PROGRAM 
 pickLength();
