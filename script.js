@@ -31,7 +31,7 @@ var pickLength = function () {
     }
 };
 
-let characters = [];
+var characters = [];
 
 var pickType = function () {
 
