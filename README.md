@@ -8,7 +8,7 @@ An online app that generates random passwords with user input criteria.
 * CSS
 * JavaScript
 
-![Screenshot](screen-shot.png)
+![Screenshot](assets/images/screen-shot.png)
 
 ## Website
  https://jeffwjohn.github.io/Password-Generator/
